@@ -1,4 +1,4 @@
-package org.telegram.messenger.forkgram
+package org.telegram.messenger.fagram
 
 import android.content.Context
 import android.content.DialogInterface

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AppName">FAgram Client</string>
-    <string name="AppNameBeta">FAgram Client</string>
+    <string name="AppName">FAgram</string>
+    <string name="AppNameBeta">FAgram</string>
     <string name="LanguageName">English</string>
     <string name="English">English</string>
     <string name="LanguageNameInEnglish">English</string>
@@ -8179,7 +8179,7 @@
     <string name="Gift2ButtonSendGift">send a gift</string>
     <string name="Gift2ButtonSell_one">sell for %d Star</string>
     <string name="Gift2ButtonSell_other">sell for %d Stars</string>
-    <!--FORK CLIENT-->
+    <!--FAGRAM-->
     <string name="BottomDialogs">Tap here to start a new chat.</string>
     <string name="FastForward">Fast Forward</string>
     <string name="ForwardAsAlbum">Forward As Album</string>

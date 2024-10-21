@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AppName">Fork Client</string>
-    <string name="AppNameBeta">Fork Client</string>
+    <string name="AppName">FAgram</string>
+    <string name="AppNameBeta">FAgram</string>
     <string name="LanguageName">Deutsch</string>
     <string name="English">Englisch</string>
     <string name="LanguageNameInEnglish">German</string>
@@ -1376,7 +1376,7 @@
     <string name="RemindTodayAt">\'Heute um\' HH:mm \'erinnern\'</string>
     <string name="RemindDayAt">\'Am\' d MMM \'um\' HH:mm \'erinnern\'</string>
     <string name="RemindDayYearAt">\'Am\' d\'.\' MMM yyyy \'um\' HH:mm \'erinnern\'</string>
-    <!--FORK CLIENT-->
+    <!--FAGRAM-->
     <string name="BottomDialogs">Tippen Sie hier, um einen neuen Chat zu starten.</string>
     <string name="FastForward">Schnell Weiterleiten</string>
     <string name="ForwardAsAlbum">Als Album weiterleiten</string>

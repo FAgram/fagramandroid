@@ -1244,7 +1244,7 @@
     <string name="RemindTodayAt">\'ذكّرني اليوم عند\' HH:mm</string>
     <string name="RemindDayAt">\'ذكّرني بتاريخ\' d MMM \'عند\' HH:mm</string>
     <string name="RemindDayYearAt">\'ذكّرني بتاريخ\' d MMM yyyy \'عند\' HH:mm</string>
-    <!--FORK CLIENT-->
+    <!--FAGRAM-->
     <string name="BottomDialogs">اضغط هنا لبدء محادثة جديدة.</string>
     <string name="FastForward">إعادة توجيه سريعة</string>
     <string name="ForwardAsAlbum">إعادة توجيه كألبوم</string>

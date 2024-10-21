@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AppName">Fork Client</string>
-    <string name="AppNameBeta">Fork Client</string>
+    <string name="AppName">FAgram</string>
+    <string name="AppNameBeta">FAgram</string>
     <string name="LanguageName">Italiano</string>
     <string name="English">Inglese</string>
     <string name="LanguageNameInEnglish">Italian</string>
@@ -1538,7 +1538,7 @@
     <string name="RemindDayAt">\'Ricorda il\' d MMM \'alle\' HH:mm</string>
     <string name="RemindDayYearAt">\'Ricorda il\' d MMM yyyy \'alle\' HH:mm</string>
     <string name="BotsMenuTitle">Menu</string>
-    <!--FORK CLIENT-->
+    <!--FAGRAM-->
     <string name="BottomDialogs">Tocca qui per avviare una nuova chat.</string>
     <string name="FastForward">Inoltra Veloce</string>
     <string name="ForwardAsAlbum">Inoltra come album</string>

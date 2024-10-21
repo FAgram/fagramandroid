@@ -1,4 +1,4 @@
-package org.telegram.messenger.forkgram
+package org.telegram.messenger.fagram
 
 import android.app.Activity
 import android.content.Context
@@ -19,7 +19,7 @@ import java.net.URL
 
 object AppUpdater {
     private const val kCheckInterval = 30 * 60 * 1000 // 30 minutes.
-    private const val title = "The latest Forkgram version"
+    private const val title = "The latest fagram version"
     private const val desc = ""
 
     private var downloadBroadcastReceiver: DownloadReceiver? = null
@@ -37,7 +37,7 @@ object AppUpdater {
         }
         val apks = f.listFiles { f -> (f.name.startsWith(title) && f.name.endsWith(".apk")) } ?: return;
         for (apk in apks) {
-            android.util.Log.i("Fork Client", "File was removed. Path: " + apk.absolutePath);
+            android.util.Log.i("FAgram", "File was removed. Path: " + apk.absolutePath);
             apk.delete();
         }
     }

@@ -263,7 +263,7 @@
     <string name="RemindTodayAt">\'Отправить сегодня в\' HH:mm</string>
     <string name="RemindDayAt">\'Отправить\' d MMM \'в\' HH:mm</string>
     <string name="RemindDayYearAt">\'Напомнить\' d MMM yyyy \'в\' HH:mm</string>
-    <!--FORK CLIENT-->
+    <!--FAGRAM-->
     <string name="BottomDialogs">Нажмите здесь, чтобы начать новый чат.</string>
     <string name="FastForward">Переслать Быстро</string>
     <string name="ForwardAsAlbum">Переслать как альбом</string>
@@ -278,7 +278,7 @@
     <string name="formatterDay12HSec">h:mm:ss a</string>
     <string name="CopyWithoutProtocol">Копировать без протокола</string>
     <!--fork settings view-->
-    <string name="ForkSettingsTitle">Настройки Fork Client</string>
+    <string name="ForkSettingsTitle">Настройки FAgram</string>
     <string name="ForkCheckUpdate">Проверить обновления</string>
     <string name="SquareAvatars">Квадратные аватары</string>
     <string name="SquareAvatarsInfo">Требуется перезапуск</string>

@@ -177,7 +177,7 @@ import org.telegram.messenger.UserObject;
 import org.telegram.messenger.Utilities;
 import org.telegram.messenger.VideoEditedInfo;
 import org.telegram.messenger.browser.Browser;
-import org.telegram.messenger.forkgram.ForkUtils;
+import org.telegram.messenger.fagram.ForkUtils;
 import org.telegram.messenger.support.LongSparseIntArray;
 import org.telegram.messenger.utils.PhotoUtilities;
 import org.telegram.messenger.voip.VoIPService;
@@ -3924,12 +3924,12 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                     // August 2013.
                     jumpToDate(1375350800);
                 } else if (id == deleteAllYourMessages) {
-                    org.telegram.messenger.forkgram.ForkDialogs.CreateDeleteAllYourMessagesAlert(
+                    org.telegram.messenger.fagram.ForkDialogs.CreateDeleteAllYourMessagesAlert(
                         currentAccount,
                         dialog_id,
                         getParentActivity());
                 } else if (id == deleteAllUnpinnedMessages) {
-                    org.telegram.messenger.forkgram.ForkDialogs.CreateDeleteAllUnpinnedMessagesAlert(
+                    org.telegram.messenger.fagram.ForkDialogs.CreateDeleteAllUnpinnedMessagesAlert(
                         currentAccount,
                         dialog_id,
                         getParentActivity());

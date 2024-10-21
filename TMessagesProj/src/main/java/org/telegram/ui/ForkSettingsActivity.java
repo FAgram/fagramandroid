@@ -369,7 +369,7 @@ public class ForkSettingsActivity extends BaseFragment {
                 toggleGlobalMainSetting("hideSensitiveData", view, false);
             } else if (position == customTitleRow) {
                 final String defaultValue = "FAgram";
-                org.telegram.messenger.forkgram.ForkDialogs.CreateFieldAlert(
+                org.telegram.messenger.fagram.ForkDialogs.CreateFieldAlert(
                     context,
                     LocaleController.getString("EditAdminRank", R.string.EditAdminRank),
                     MessagesController.getGlobalMainSettings().getString("forkCustomTitle", defaultValue),

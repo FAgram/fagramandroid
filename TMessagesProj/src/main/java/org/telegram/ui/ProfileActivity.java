@@ -4041,6 +4041,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 presentFragment(new LiteModeSettingsActivity());
             } else if (position == devicesRow) {
                 presentFragment(new SessionsActivity(0));
+            } else if (position == forkRow) {
+                presentFragment(new ForkSettingsActivity());
             } else if (position == forkCheckUpdateRow) {
                 ((LaunchActivity) getParentActivity()).checkAppUpdate(true, null);
             } else if (position == questionRow) {

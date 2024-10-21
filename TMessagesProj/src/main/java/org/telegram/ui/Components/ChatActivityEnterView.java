@@ -3561,7 +3561,7 @@ public class ChatActivityEnterView extends BlurredFrameLayout implements Notific
                 || (recordedAudioTimeTextView.getVisibility() == GONE)) {
                 return;
             }
-            org.telegram.messenger.forkgram.ForkDialogs.CreateVoiceCaptionAlert(
+            org.telegram.messenger.fagram.ForkDialogs.CreateVoiceCaptionAlert(
                 getContext(),
                 recordTimerView.timestamps,
                 (String caption) -> {
