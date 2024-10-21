@@ -333,7 +333,7 @@ public class SessionBottomSheet extends BottomSheet {
                 iconId = R.drawable.device_web_opera;
             } else if (deviceModel.contains("firefox")) {
                 iconId = R.drawable.device_web_firefox;
-            } else if (session.app_name.contains("fagram")) {
+            } else if (session.app_name.contains("FAgram")) {
                 iconId = R.drawable.menu_fork;
             } else {
                 iconId = R.drawable.device_web_other;

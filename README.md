@@ -23,4 +23,4 @@
 ## ❤️ Credits
 
 * [Telegram Android](https://github.com/telegramdesktop/tdesktop)
-* [Forkgram](https://github.com/forkgram/TelegramAndroid)
+* [Forkgram](https://github.com/fagram/TelegramAndroid)

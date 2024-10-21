@@ -19,7 +19,7 @@ import java.net.URL
 
 object AppUpdater {
     private const val kCheckInterval = 30 * 60 * 1000 // 30 minutes.
-    private const val title = "The latest fagram version"
+    private const val title = "The latest FAgram version"
     private const val desc = ""
 
     private var downloadBroadcastReceiver: DownloadReceiver? = null
