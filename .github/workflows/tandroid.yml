@@ -1,4 +1,4 @@
-name: Fork Client
+name: FAgram
 
 on: [push]
 
@@ -40,49 +40,41 @@ jobs:
           echo "ADDITIONAL_BUILD_NUMBER=$result" >> $GITHUB_ENV
           echo "USER_REPO=$GITHUB_REPOSITORY" >> $GITHUB_ENV
           echo "CHECK_UPDATES=${{ matrix.updates }}" >> $GITHUB_ENV
+
       - name: Build.
         run: |
-          ###
           vars=gradle.properties
 
           echo "DUMMY_CONST=0" >> $vars
           echo "org.gradle.workers.max=1" >> $vars
-          echo "APP_ID=${{ secrets.APP_ID }}" >> $vars
-          echo "APP_HASH=${{ secrets.APP_HASH }}" >> $vars
+          echo "APP_ID=${{ secrets.API_ID }}" >> $vars
+          echo "APP_HASH=${{ secrets.API_HASH }}" >> $vars
           echo "RELEASE_KEY_PASSWORD=${{ secrets.ALIAS_PASS }}" >> $vars
           echo "RELEASE_KEY_ALIAS=${{ secrets.ALIAS_NAME }}" >> $vars
           echo "RELEASE_STORE_PASSWORD=${{ secrets.KEYSTORE_PASS }}" >> $vars
           echo "ADDITIONAL_BUILD_NUMBER=$ADDITIONAL_BUILD_NUMBER" >> $vars
           echo "USER_REPO=$USER_REPO" >> $vars
           echo "CHECK_UPDATES=${{ matrix.updates }}" >> $vars
-          echo "USER_ID_OWNER=${{ secrets.USER_ID_OWNER }}" >> $vars
-
-          ###
           echo $ADDITIONAL_BUILD_NUMBER
           sudo apt update
           sudo apt -y install ninja-build unzip pip
           ./gradlew :TMessagesProj_App:${{ matrix.afat }}
 
-          #grep BUILD_VERSION_STRING TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java | cut -d'"' -f 2 > ver.txt
           grep VERSION_NAME TMessagesProj/build/generated/source/buildConfig/${{ matrix.type }}/org/telegram/messenger/BuildConfig.java | cut -d'"' -f 2 > ver.txt
 
-          mkdir artifact
-          mv TMessagesProj_App/build/outputs/apk/afat/${{ matrix.type }}/app.apk app.apk
-          cp app.apk "artifact/ForkClient $(cat ver.txt)${{ matrix.name }}.apk"
-          mkdir tag_asset
-          cp app.apk "tag_asset/ForkClient_$(cat ver.txt)${{ matrix.name }}.apk"
+      - name: Find APK files
+        run: find TMessagesProj_App/build/outputs/apk -name "*.apk"
 
-          # Upload to channel.
-          set +x
-          pip install tgcrypto
-          pip install https://github.com/KurimuzonAkuma/pyrogram/archive/dev.zip --force-reinstall
-          cp app.apk "ForkClient $(cat ver.txt)${{ matrix.name }}.apk"
-          echo "${{ secrets.BASE64_ZIP }}" | base64 --decode > output.zip
-          unzip -j output.zip -d .
-          ls
-          python3 upload.py
-          set -x
-          ###
+      - name: Check and Move APK
+        run: |
+          APK_PATH="TMessagesProj_App/build/outputs/apk/afat/${{ matrix.type }}/TMessagesProj_App-afat-${{ matrix.type }}.apk"
+          echo "Looking for APK at $APK_PATH"
+        
+          echo "APK found at $APK_PATH"
+          mkdir -p artifact tag_asset
+          mv "$APK_PATH" app.apk
+          cp app.apk "artifact/Fagram $(cat ver.txt)${{ matrix.name }}.apk"
+          cp app.apk "tag_asset/Fagram_$(cat ver.txt)${{ matrix.name }}.apk"
 
           echo "NEW_TAG_TEXT=$(cat ver.txt)" >> $GITHUB_ENV
 
@@ -98,10 +90,11 @@ jobs:
           draft: true
           files: tag_asset/*
           tag_name: ${{ env.NEW_TAG_TEXT }}
-          name: "ForkClient ${{ env.NEW_TAG_TEXT }}"
+          name: "Fagram ${{ env.NEW_TAG_TEXT }}"
           body: "— Updated to ${{ env.NEW_OFFICIAL_TAG_TEXT }} build of the official Telegram."
+
       - uses: actions/upload-artifact@master
         name: Upload artifact.
         with:
-          name: ForkClient-${{ matrix.type }}
+          name: FAgram-${{ matrix.type }}
           path: artifact/

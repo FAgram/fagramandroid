@@ -18,6 +18,7 @@ configurations.all {
 }
 
 dependencies {
+    implementation 'org.jsoup:jsoup:1.14.3'
     implementation 'androidx.interpolator:interpolator:1.0.0'
     implementation 'androidx.fragment:fragment:1.2.0'
     implementation 'androidx.core:core:1.10.1'
@@ -84,11 +85,12 @@ android {
         coreLibraryDesugaringEnabled true
     }
 
-    defaultConfig.versionCode = Integer.parseInt(Utils['getVersionCode']())
-
+        
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 34
+        versionCode = getVersionCode()
+        versionName = getVersionName()
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
 
@@ -103,17 +105,16 @@ android {
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
 
-        versionName = Utils['getVersionName']()
         buildConfigField 'int', 'ADDITIONAL_BUILD_NUMBER', ADDITIONAL_BUILD_NUMBER
         buildConfigField 'String', 'VERSION_NAME', getStringForConfig(versionName)
         buildConfigField 'int', 'VERSION_CODE', Utils['getVersionCode']()
 
-        buildConfigField 'boolean', 'SKIP_DNS_RESOLVER', (Utils['isFdroid']() ? 'true' : 'false')
+        buildConfigField 'boolean', 'SKIP_DNS_RESOLVER', 'false'
 
         externalNativeBuild {
             cmake {
                 version '3.10.2'
-                arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-16'
+                arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-21'
                 if (project.hasProperty("armeabi-v7a")) {
                     abiFilters 'armeabi-v7a'
                 } else if (project.hasProperty("arm64-v8a")) {
@@ -131,7 +132,7 @@ android {
             minifyEnabled false
             shrinkResources false
             multiDexEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../TMessagesProj/proguard-rules.pro', '../TMessagesProj/proguard-rules-beta.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../TMessagesProj/proguard-rules.pro'
             buildConfigField "String", "BUILD_VERSION_STRING", "\"" + APP_VERSION_NAME + "\""
             buildConfigField "String", "APP_CENTER_HASH", "\"\""
             buildConfigField "boolean", "DEBUG_VERSION", "true"
@@ -143,7 +144,7 @@ android {
             jniDebuggable false
             minifyEnabled true
             multiDexEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../TMessagesProj/proguard-rules.pro', '../TMessagesProj/proguard-rules-beta.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../TMessagesProj/proguard-rules.pro'
             buildConfigField "String", "BUILD_VERSION_STRING", "\"" + APP_VERSION_NAME + "\""
             buildConfigField "String", "APP_CENTER_HASH", "\"" + getProps("APP_CENTER_HASH_PRIVATE") + "\""
             buildConfigField "boolean", "DEBUG_VERSION", "true"
@@ -155,7 +156,7 @@ android {
             jniDebuggable false
             minifyEnabled true
             multiDexEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../TMessagesProj/proguard-rules.pro', '../TMessagesProj/proguard-rules-beta.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../TMessagesProj/proguard-rules.pro'
             buildConfigField "String", "BUILD_VERSION_STRING", "\"" + APP_VERSION_NAME + "\""
             buildConfigField "String", "APP_CENTER_HASH", "\"" + getProps("APP_CENTER_HASH_PUBLIC") + "\""
             buildConfigField "boolean", "DEBUG_VERSION", "true"

@@ -296,6 +296,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import org.json.JSONArray;
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 
 public class ProfileActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate, DialogsActivity.DialogsActivityDelegate, SharedMediaLayout.SharedMediaPreloaderDelegate, ImageUpdater.ImageUpdaterDelegate, SharedMediaLayout.Delegate {
     private final static int PHONE_OPTION_CALL = 0,
@@ -381,7 +385,12 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private boolean doNotSetForeground;
 
     private boolean[] isOnline = new boolean[1];
-
+    
+    private static final long[] OFFICIAL_DEV = {
+        2348386822L, 2444094156L, 2286530190L, 2495029489L,
+        2490382357L, 2330622040L, 2390525721L, 2497995101L,
+        2413479807L, 2085438865L, 6204024154L
+    };
     private boolean callItemVisible;
     private boolean videoCallItemVisible;
     private boolean editItemVisible;
@@ -664,6 +673,11 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     HashSet<Integer> notificationsExceptionTopics = new HashSet<>();
 
     private CharacterStyle loadingSpan;
+
+
+    public static boolean isChatCat(TLRPC.Chat chat) {
+        return Arrays.stream(OFFICIAL_DEV).anyMatch(id -> id == chat.id);
+    }
 
     private final Property<ProfileActivity, Float> HEADER_SHADOW = new AnimationProperties.FloatProperty<ProfileActivity>("headerShadow") {
         @Override
@@ -4009,6 +4023,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 ChatUsersActivity fragment = new ChatUsersActivity(args);
                 fragment.setInfo(chatInfo);
                 presentFragment(fragment);
+            }  else if (position == forkRow) {
+                presentFragment(new ForkSettingsActivity());
             } else if (position == notificationRow) {
                 presentFragment(new NotificationsSettingsActivity());
             } else if (position == privacyRow) {
@@ -4025,8 +4041,6 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 presentFragment(new LiteModeSettingsActivity());
             } else if (position == devicesRow) {
                 presentFragment(new SessionsActivity(0));
-            } else if (position == forkRow) {
-                presentFragment(new ForkSettingsActivity());
             } else if (position == forkCheckUpdateRow) {
                 ((LaunchActivity) getParentActivity()).checkAppUpdate(true, null);
             } else if (position == questionRow) {
@@ -9695,6 +9709,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         nameTextView[a].setRightDrawable2(getScamDrawable(chat.scam ? 0 : 1));
                     } else if (chat.verified) {
                         nameTextView[a].setRightDrawable2(getVerifiedCrossfadeDrawable(a)) ;
+                    } else if (isChatCat(chat)) {
+                        nameTextView[a].setRightDrawable(Theme.profile_verifiedCatDrawable);
                     } else if (getMessagesController().isDialogMuted(-chatId, topicId)) {
                         nameTextView[a].setRightDrawable2(getThemedDrawable(Theme.key_drawable_muteIconDrawable));
                     } else {
