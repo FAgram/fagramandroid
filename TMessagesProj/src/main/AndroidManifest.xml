@@ -130,7 +130,7 @@
         <activity-alias
             android:enabled="true"
             android:name="FAgram"
-            android:targetActivity="org.fateam.ui.LaunchActivity"
+            android:targetActivity="org.telegram.ui.LaunchActivity"
             android:icon="@mipmap/icon_01_launcher"
             android:roundIcon="@mipmap/icon_01_launcher_round"
             android:exported="true">
@@ -144,8 +144,23 @@
 
         <activity-alias
             android:enabled="false"
-            android:name="FAgram"
-            android:targetActivity="org.fagram.ui.LaunchActivity"
+            android:name="org.telegram.messenger.OriginalIcon"
+            android:targetActivity="org.telegram.ui.LaunchActivity"
+            android:icon="@mipmap/ic_original_launcher"
+            android:roundIcon="@mipmap/ic_original_launcher_round"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:enabled="false"
+            android:name="org.telegram.messenger.OriginalIcon"
+            android:targetActivity="org.telegram.ui.LaunchActivity"
             android:icon="@mipmap/ic_original_launcher"
             android:roundIcon="@mipmap/ic_original_launcher_round"
             android:exported="true">
@@ -502,11 +517,9 @@ e            <intent-filter>
             </intent-filter>
         </receiver>
 
-        <receiver
-            android:name=".CallReceiver"
-            android:exported="false">
+        <receiver android:name=".CallReceiver" android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.PHONE_STATE"/>
             </intent-filter>
         </receiver>
 
