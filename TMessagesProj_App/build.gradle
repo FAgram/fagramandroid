@@ -41,7 +41,7 @@ android {
         coreLibraryDesugaringEnabled true
     }
 
-    def fdroid = Utils['isFdroid']()
+    def fdroid = false // Utils['isFdroid']()
     def appSuffix = fdroid ? "" : ".beta"
     def flavorsConfig = fdroid ? "config/release" : "config/debug"
     if (fdroid) {
