@@ -1,4 +1,4 @@
-<h2><img src="https://github.com/hikariatama/assets/raw/master/1326-command-window-line-flat.webp" height="50" align="middle"> Creating your FaGram Application</h2>
+<h2><img src="https://github.com/hikariatama/assets/raw/master/1326-command-window-line-flat.webp" height="50" align="middle"> Creating your FAgram Application</h2>
 
 > ***✏️ Note that source code is published under GPLv2 with OpenSSL exception, the license is available here.***
 
@@ -23,7 +23,7 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 
 You will require Android Studio 3.4, Android NDK rev. 20 and Android SDK 8.1
 
-1. Download the Telegram source code from https://github.com/c0dwiz/TelegramAndroid ( git clone https://github.com/c0dwiz/TelegramAndroid.git )
+1. Download the Telegram source code from https://github.com/fajox1/fagramandroid ( git clone https://github.com/fajox1/fagramandroid.git )
 2. Copy your release.keystore into TMessagesProj/config
 3. Fill out RELEASE_KEY_PASSWORD, RELEASE_KEY_ALIAS, RELEASE_STORE_PASSWORD in gradle.properties to access your  release.keystore
 4.  Go to https://console.firebase.google.com/, create two android apps with application IDs org.telegram.messenger and org.telegram.messenger.beta, turn on firebase messaging and download google-services.json, which should be copied to the same folder as TMessagesProj.
